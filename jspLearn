@@ -54,3 +54,29 @@ page 当前页面
 request  当前请求
 session  当前会话
 application  整个服务
+设置属性  setsttribute("name","value")
+
+jsp页面跳转：
+服务端跳转 <jsp:forward page=""><jsp:param sername="username"/></jsp:forward>
+
+
+el表达式操作的是域对象，
+dmpty   ${empty value}   el表达式判断value是否为空，是则返回true，不是返回false。
+若value为字符串，null，空，空字符串都返回true。
+若value为list，null，空集合，都返回true。
+若value为map，null，空集合，都返回true。
+若value为自定义类对象，null，返回true，空对象返回false。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
