@@ -1,0 +1,56 @@
+1、JSP中的两种注解：
+<pre>
+        JSP中有两种类型的注释：
+            隐式注释
+                jsp自己的注释
+                <%-- jsp自己的注释 --%>
+                java中的注释
+                //单行注释
+                /*
+                    多行注释
+                */
+                
+                <%
+    //单行注释
+                /*
+                    多行注释
+                */
+%>
+                
+            显式注释
+                继承于html
+        <!--继承于html-->
+        &lt;%-- jsp自己的注释 --%&gt;
+    </pre>
+
+2、JSP中的scriptlet脚本
+<%--第一种：java脚本段，可以写java代码，定义局部变量，编写语句等--%>
+<%
+String str = "hello word";
+    System.out.println(str);
+%>
+<%--第二种：声明，声明全局变量，方法，类等--%>
+<%! String global = "全局"; %>
+<%-- 输出表达式，输出变量或者字面值--%>
+下面输出全局变量
+<%=global%>
+
+3、JSP中的指令标签
+静态包含
+<%@include file = "" %>
+将内容进行直接替换。静态包含只会生成一个源码文件，所有的内容都在一个——jspservice方法体中。在同页面不能出现同名变量。耦合度高
+动态包含：
+<jsp:include page=""></jsp:include>
+编译时不会合并文件，而是在运行时进行文件调用，有几个文件就会生成几个源码文件。效率高，耦合度低。当动态包含不需要传递参数时，jsp:include中间不要出现任何内容
+<jsp:include page="">
+  <jsp:param username="username"/>
+  <jsp:param age="<%=age%>"/>
+</jsp:include>
+
+取参数时，可以直接通过request对象获取：request.getParam("username")
+
+4、jsp四大作用域
+page 当前页面
+request  当前请求
+session  当前会话
+application  整个服务
